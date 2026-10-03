@@ -1,10 +1,12 @@
 # 软件工程实验一：个人编程技能和 git 操作
 
 本仓库是《软件工程》课程实验一的源码与文档，用于练习个人代码管理与 git 基本操作，
-并完成两项编程任务：
+并完成三项编程任务：
 
 1. 使用熟悉的编程语言输出 `Hello World`；
-2. 利用 AI 辅助编程，实现 **HJ212-2017 环保协议报文解析 Python 类库**。
+2. 利用 AI 辅助编程，实现 **HJ212-2017 环保协议报文解析 Python 类库**；
+3. 实现命令行词频统计程序 **WF**（第 0 步：统计英文文本文件中 26 个字母出现的频率，
+   由高到低排列并显示百分比，精确到小数点后两位；同频按字典序排列）。
 
 ## 仓库结构
 
@@ -17,6 +19,10 @@ software-engineering-experiment-1
 ├── hj212
 │   ├── hj212_parser.py           # HJ212Parser 协议解析类库
 │   └── test_hj212_parser.py      # 单元测试（16 个用例）
+├── wf
+│   ├── wf.py                     # WF 词频统计程序（第 0 步）
+│   ├── test_wf.py                # 回归测试（11 个用例）
+│   └── sample.txt                # 示例英文文本
 └── docs
     └── 读后感.md                 # 任正非公开信读后感
 ```
@@ -37,6 +43,12 @@ python3 hj212/hj212_parser.py
 python3 -m unittest hj212/test_hj212_parser.py -v
 # 或
 cd hj212 && python3 test_hj212_parser.py
+
+# WF 词频统计（第 0 步：字母频率）
+python3 wf/wf.py -c wf/sample.txt
+
+# WF 回归测试
+cd wf && python3 -m unittest test_wf -v
 ```
 
 ## HJ212Parser 功能说明
@@ -68,6 +80,8 @@ cd hj212 && python3 test_hj212_parser.py
 ## 测试结果
 
 ```
-Ran 16 tests in 0.001s
+Ran 16 tests in 0.001s     # hj212（单元测试）
+OK
+Ran 11 tests in 0.562s     # wf（回归测试）
 OK
 ```
